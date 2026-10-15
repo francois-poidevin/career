@@ -3,529 +3,23 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>François POIDEVIN MERDRIGNAC — Ingénieur Cloud & DevOps</title>
-
-<!-- ===== FAVICON ===== -->
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdHlsZT0ic3RvcC1jb2xvcjojZmZmZmZmIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3R5bGU9InN0b3AtY29sb3I6IzdkODE4NyIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICA8L2RlZnM+CiAgPHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiByeD0iMCIgZmlsbD0iIzBhMGEwYSIvPgogIDx0ZXh0IHg9IjUwJSIgeT0iNTQlIiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIgogICAgICAgIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC13ZWlnaHQ9IjQwMCIgZm9udC1zaXplPSIyNiIKICAgICAgICBmaWxsPSIjZmZmZmZmIiBsZXR0ZXItc3BhY2luZz0iLTEiPkZQPC90ZXh0Pgo8L3N2Zz4="/>
-<meta name="theme-color" content="#0a0a0a"/>
-
-<!-- ===== FONTS ===== -->
+<title>François Poidevin Merdrignac · Ingénieur Cloud &amp; DevOps</title>
+<meta name="description" content="Ingénieur Cloud et DevOps à Toulouse. Go, Kubernetes, AWS. Mobilité autonome et villes connectées."/>
+<meta name="theme-color" content="#04343a"/>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='32' fill='%23097c87'/%3E%3Ctext x='50%25' y='56%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-weight='800' font-size='28' fill='%23fca57c'%3EFP%3C/text%3E%3C/svg%3E"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400&family=Geist+Mono:wght@400&display=swap" rel="stylesheet"/>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
-
-<style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-
-:root{
-  --canvas:#0a0a0a;
-  --canvas-soft:#1a1c20;
-  --canvas-card:#191919;
-  --canvas-mid:#363a3f;
-  --hairline:#212327;
-  --ink:#ffffff;
-  --ink-hover:#fafaf7;
-  --body:#dadbdf;
-  --body-mid:#7d8187;
-  --mute:#7d8187;
-  --primary:#ffffff;
-  --on-primary:#0a0a0a;
-  --accent-sunset:#ff7a17;
-  --accent-sunset-soft:#ffc285;
-  --accent-dusk:#7c3aed;
-  --accent-twilight:#c4b5fd;
-  --accent-breeze:#a0c3ec;
-  --accent-midnight:#0d1726;
-
-  --font-sans:Inter,system-ui,-apple-system,sans-serif;
-  --font-mono:'Geist Mono',ui-monospace,SFMono-Regular,Menlo,Monaco,monospace;
-
-  --radius-sm:8px;
-  --radius-pill:9999px;
-
-  --sp-xxs:2px;
-  --sp-xs:4px;
-  --sp-sm:8px;
-  --sp-md:12px;
-  --sp-lg:16px;
-  --sp-xl:24px;
-  --sp-2xl:32px;
-  --sp-3xl:48px;
-  --sp-4xl:64px;
-}
-
-html{scroll-behavior:smooth}
-body{font-family:var(--font-sans);background:var(--canvas);color:var(--ink);overflow-x:hidden;line-height:1.5;font-weight:400;font-size:16px}
-::selection{background:var(--ink);color:var(--on-primary)}
-
-/* ── PROGRESS BAR ── */
-#progress-bar{position:fixed;top:0;left:0;height:1px;width:0%;background:linear-gradient(90deg,var(--accent-sunset),var(--accent-dusk));z-index:9999;transition:width .1s linear}
-
-/* ── NAV ── */
-nav{
-  position:fixed;top:1px;left:0;right:0;z-index:1000;
-  display:flex;align-items:center;justify-content:space-between;
-  padding:var(--sp-md) var(--sp-xl);
-  background:var(--canvas);
-  border-bottom:1px solid var(--hairline);
-}
-.nav-logo{
-  font-family:var(--font-mono);font-weight:400;font-size:14px;
-  color:var(--ink);letter-spacing:1.4px;text-transform:uppercase;
-}
-.nav-links{display:flex;gap:.15rem;list-style:none;align-items:center}
-.nav-links a{
-  color:var(--body-mid);text-decoration:none;font-size:14px;font-weight:400;
-  padding:var(--sp-xs) var(--sp-md);border-radius:var(--radius-pill);
-  transition:color .2s ease;
-}
-.nav-links a:hover,.nav-links a.active{color:var(--ink)}
-.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px}
-.hamburger span{display:block;width:20px;height:1px;background:var(--ink);border-radius:0}
-
-/* ── SECTIONS ── */
-section{padding:var(--sp-4xl) 0;position:relative}
-.container{max-width:1200px;margin:0 auto;padding:0 var(--sp-xl)}
-
-.eyebrow{
-  display:inline-block;
-  font-family:var(--font-mono);font-size:14px;font-weight:400;
-  letter-spacing:1.4px;text-transform:uppercase;color:var(--accent-sunset);
-  margin-bottom:var(--sp-xl);
-}
-
-.section-title{
-  font-family:var(--font-sans);font-size:clamp(32px,5vw,48px);font-weight:400;
-  line-height:1;letter-spacing:-1.2px;color:var(--ink);margin-bottom:var(--sp-xl);
-}
-
-.divider{width:100%;height:1px;background:var(--hairline);margin:var(--sp-4xl) 0}
-
-/* ── ANIMATIONS ── */
-.fade-up{opacity:0;transform:translateY(32px);transition:opacity .6s ease,transform .6s ease}
-.fade-up.visible{opacity:1;transform:translateY(0)}
-.fade-left{opacity:0;transform:translateX(-32px);transition:opacity .6s ease,transform .6s ease}
-.fade-left.visible{opacity:1;transform:translateX(0)}
-.fade-right{opacity:0;transform:translateX(32px);transition:opacity .6s ease,transform .6s ease}
-.fade-right.visible{opacity:1;transform:translateX(0)}
-.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}.d5{transition-delay:.5s}
-
-/* ── BUTTONS ── */
-.btn-p{
-  display:inline-flex;align-items:center;gap:var(--sp-sm);
-  padding:var(--sp-sm) var(--sp-lg);
-  background:var(--primary);color:var(--on-primary);
-  font-family:var(--font-sans);font-size:14px;font-weight:400;line-height:20px;
-  border-radius:var(--radius-pill);border:1px solid var(--primary);
-  text-decoration:none;transition:opacity .2s ease;
-}
-.btn-p:hover{opacity:.88}
-
-.btn-o{
-  display:inline-flex;align-items:center;gap:var(--sp-sm);
-  padding:var(--sp-sm) var(--sp-lg);
-  background:transparent;color:var(--ink);
-  font-family:var(--font-sans);font-size:14px;font-weight:400;line-height:20px;
-  border-radius:var(--radius-pill);border:1px solid var(--hairline);
-  text-decoration:none;transition:border-color .2s ease,color .2s ease;
-}
-.btn-o:hover{border-color:rgba(255,255,255,.35);color:var(--ink-hover)}
-
-/* ── HERO ── */
-#hero{
-  min-height:100vh;display:flex;align-items:center;
-  padding-top:57px;
-  background:radial-gradient(ellipse 80% 60% at 70% 120%,rgba(124,58,237,.12) 0%,transparent 60%),
-             radial-gradient(ellipse 60% 50% at 10% 0%,rgba(255,122,23,.07) 0%,transparent 55%),
-             var(--canvas);
-}
-.hero-inner{position:relative;z-index:2;width:100%;display:grid;grid-template-columns:1fr auto;gap:var(--sp-4xl);align-items:center}
-.hero-eyebrow{
-  font-family:var(--font-mono);font-size:14px;font-weight:400;
-  letter-spacing:1.4px;text-transform:uppercase;color:var(--accent-sunset);
-  margin-bottom:var(--sp-xl);
-}
-.hero-name{
-  font-family:var(--font-sans);font-size:clamp(48px,7vw,96px);font-weight:400;
-  line-height:1;letter-spacing:-2.4px;color:var(--ink);margin-bottom:var(--sp-xl);
-}
-.hero-subtitle{
-  font-size:18px;font-weight:400;line-height:28px;
-  color:var(--body);margin-bottom:var(--sp-xl);
-}
-.hero-tagline{
-  font-size:16px;font-weight:400;line-height:24px;
-  color:var(--body-mid);max-width:560px;margin-bottom:var(--sp-2xl);
-  padding:var(--sp-lg);
-  background:var(--canvas-card);border:1px solid var(--hairline);
-  border-radius:var(--radius-sm);
-}
-.hero-loc{
-  display:flex;align-items:center;gap:var(--sp-sm);
-  color:var(--body-mid);font-size:14px;margin-bottom:var(--sp-2xl);
-}
-.hero-cta{display:flex;flex-wrap:wrap;gap:var(--sp-sm)}
-.avatar{
-  width:180px;height:180px;border-radius:var(--radius-sm);
-  background:var(--canvas-card);
-  border:1px solid var(--hairline);
-  outline:1px solid transparent;
-  outline-offset:4px;
-  box-shadow:0 0 0 1px var(--hairline),inset 0 0 60px rgba(124,58,237,.08);
-  display:flex;align-items:center;justify-content:center;
-  font-family:var(--font-mono);font-size:32px;font-weight:400;
-  color:var(--accent-twilight);letter-spacing:1.4px;flex-shrink:0;
-  position:relative;overflow:hidden;
-}
-.avatar::before{
-  content:'';position:absolute;inset:0;
-  background:linear-gradient(135deg,rgba(255,122,23,.06) 0%,rgba(124,58,237,.1) 100%);
-  pointer-events:none;
-}
-.scroll-hint{
-  position:absolute;bottom:var(--sp-2xl);left:50%;transform:translateX(-50%);
-  display:flex;flex-direction:column;align-items:center;gap:var(--sp-sm);
-  color:var(--body-mid);font-family:var(--font-mono);font-size:12px;
-  letter-spacing:1.2px;text-transform:uppercase;
-}
-
-/* ── ABOUT ── */
-#about{background:var(--canvas-soft)}
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-4xl);align-items:start}
-.about-text p{color:var(--body);margin-bottom:var(--sp-lg);font-size:16px;line-height:24px}
-.about-text p strong{color:var(--ink);font-weight:400}
-.about-stats{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-sm);margin-bottom:var(--sp-xl)}
-.stat-card{
-  background:var(--canvas-card);border:1px solid var(--hairline);
-  border-radius:var(--radius-sm);padding:var(--sp-xl);text-align:center;
-  transition:border-color .2s ease;
-}
-.stat-card:nth-child(1){border-top:2px solid var(--accent-sunset)}
-.stat-card:nth-child(2){border-top:2px solid var(--accent-dusk)}
-.stat-card:nth-child(3){border-top:2px solid var(--accent-breeze)}
-.stat-card:nth-child(4){border-top:2px solid var(--accent-twilight)}
-.stat-card:hover{border-color:rgba(255,255,255,.2)}
-.stat-val{
-  font-family:var(--font-sans);font-size:32px;font-weight:400;
-  letter-spacing:-0.6px;color:var(--ink);display:block;line-height:36px;margin-bottom:var(--sp-xs);
-}
-.stat-card:nth-child(1) .stat-val{color:var(--accent-sunset)}
-.stat-card:nth-child(2) .stat-val{color:var(--accent-twilight)}
-.stat-card:nth-child(3) .stat-val{color:var(--accent-breeze)}
-.stat-card:nth-child(4) .stat-val{color:var(--accent-sunset-soft)}
-.stat-lbl{font-family:var(--font-mono);font-size:12px;color:var(--body-mid);letter-spacing:1.2px;text-transform:uppercase}
-.lang-wrap{display:flex;gap:var(--sp-sm);flex-wrap:wrap;margin-top:var(--sp-xl)}
-.lang-b{
-  display:inline-flex;align-items:center;gap:var(--sp-sm);
-  padding:var(--sp-xs) var(--sp-md);border-radius:var(--radius-pill);
-  font-size:14px;font-weight:400;color:var(--ink);
-  border:1px solid var(--hairline);background:transparent;
-}
-.lang-b:first-child{border-color:rgba(255,122,23,.4);color:var(--accent-sunset-soft)}
-.lang-b:last-child{border-color:rgba(160,195,236,.3);color:var(--accent-breeze)}
-
-/* ── TIMELINE / EXPERIENCE ── */
-#experience{background:var(--canvas)}
-.timeline{position:relative;padding-left:var(--sp-2xl)}
-.timeline::before{
-  content:'';position:absolute;left:0;top:0;bottom:0;
-  width:1px;background:linear-gradient(180deg,var(--accent-sunset),var(--accent-dusk),var(--hairline));
-}
-.tl-item{position:relative;margin-bottom:var(--sp-2xl)}
-.tl-dot{
-  position:absolute;left:calc(-1 * var(--sp-2xl) - 4px);top:var(--sp-xl);
-  width:9px;height:9px;border-radius:50%;background:var(--accent-sunset);
-  border:1px solid var(--hairline);
-  box-shadow:0 0 8px rgba(255,122,23,.5);
-}
-.tl-item:nth-child(2) .tl-dot{background:var(--accent-dusk);box-shadow:0 0 8px rgba(124,58,237,.5)}
-.tl-item:nth-child(3) .tl-dot{background:var(--accent-breeze);box-shadow:0 0 8px rgba(160,195,236,.4)}
-.tl-item:nth-child(4) .tl-dot{background:var(--canvas-mid);box-shadow:none}
-.tl-card{
-  background:var(--canvas-card);border:1px solid var(--hairline);
-  border-radius:var(--radius-sm);padding:var(--sp-xl) var(--sp-2xl);
-  transition:border-color .2s ease;
-}
-.tl-card:hover{border-color:rgba(255,255,255,.2)}
-.tl-item:nth-child(1) .tl-card{border-left:2px solid var(--accent-sunset)}
-.tl-item:nth-child(2) .tl-card{border-left:2px solid var(--accent-dusk)}
-.tl-item:nth-child(3) .tl-card{border-left:2px solid var(--accent-breeze)}
-.job-head{display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:var(--sp-sm);margin-bottom:var(--sp-xs)}
-.job-co{font-family:var(--font-sans);font-size:20px;font-weight:400;color:var(--ink);letter-spacing:0}
-.jbadge{
-  display:inline-block;padding:var(--sp-xxs) var(--sp-md);
-  border-radius:var(--radius-pill);font-family:var(--font-mono);
-  font-size:12px;font-weight:400;letter-spacing:1.2px;text-transform:uppercase;
-  color:var(--accent-sunset);border:1px solid rgba(255,122,23,.3);
-}
-.tl-item:nth-child(2) .jbadge{color:var(--accent-twilight);border-color:rgba(196,181,253,.25)}
-.tl-item:nth-child(3) .jbadge,.tl-item:nth-child(4) .jbadge{color:var(--body-mid);border-color:var(--hairline)}
-.job-role{color:var(--body);font-size:16px;margin-bottom:var(--sp-xs);font-weight:400}
-.job-loc{
-  color:var(--body-mid);font-family:var(--font-mono);font-size:12px;
-  letter-spacing:1.2px;text-transform:uppercase;
-  display:flex;align-items:center;gap:var(--sp-sm);margin-bottom:var(--sp-lg);flex-wrap:wrap;
-}
-.job-desc{color:var(--body);font-size:16px;line-height:24px;margin-bottom:var(--sp-lg)}
-.job-bullets{list-style:none;display:flex;flex-direction:column;gap:var(--sp-sm);margin-bottom:var(--sp-lg)}
-.job-bullets li{color:var(--body);font-size:14px;padding-left:var(--sp-lg);position:relative;line-height:20px}
-.job-bullets li::before{content:"—";position:absolute;left:0;color:var(--accent-sunset);font-size:14px;opacity:.7}
-.tech-tags{display:flex;flex-wrap:wrap;gap:var(--sp-xs);margin-top:var(--sp-md)}
-.tt{
-  display:inline-block;padding:var(--sp-xxs) var(--sp-sm);
-  border-radius:var(--radius-sm);font-family:var(--font-mono);
-  font-size:12px;font-weight:400;letter-spacing:1.2px;
-  background:rgba(255,122,23,.06);color:var(--accent-sunset-soft);border:1px solid rgba(255,122,23,.2);
-}
-.tl-item:nth-child(2) .tt{background:rgba(124,58,237,.06);color:var(--accent-twilight);border-color:rgba(196,181,253,.2)}
-.tl-item:nth-child(3) .tt{background:rgba(160,195,236,.06);color:var(--accent-breeze);border-color:rgba(160,195,236,.2)}
-.tl-item:nth-child(4) .tt{background:var(--canvas-soft);color:var(--body-mid);border-color:var(--hairline)}
-.tl-sub{
-  margin-left:var(--sp-lg);border-left:1px solid rgba(124,58,237,.25);
-  padding-left:var(--sp-xl);display:flex;flex-direction:column;gap:var(--sp-lg);margin-bottom:var(--sp-md);
-}
-.tl-sub-card{
-  background:var(--canvas-soft);border:1px solid var(--hairline);
-  border-radius:var(--radius-sm);padding:var(--sp-md) var(--sp-lg);
-  transition:border-color .2s ease;
-}
-.tl-sub-card:hover{border-color:rgba(196,181,253,.3)}
-.sub-role{font-weight:400;color:var(--ink);font-size:16px;margin-bottom:var(--sp-xxs)}
-.sub-period{font-family:var(--font-mono);font-size:12px;color:var(--accent-twilight);letter-spacing:1.2px;text-transform:uppercase;margin-bottom:var(--sp-sm)}
-.sub-desc{font-size:14px;color:var(--body);line-height:20px}
-
-/* ── SKILLS ── */
-#skills{background:var(--canvas-soft)}
-.skills-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:var(--sp-md)}
-.sk-cat{
-  background:var(--canvas-card);border:1px solid var(--hairline);
-  border-radius:var(--radius-sm);padding:var(--sp-xl);
-  transition:border-color .2s ease;
-}
-.sk-cat:nth-child(1){border-top:2px solid var(--accent-sunset)}
-.sk-cat:nth-child(2){border-top:2px solid var(--accent-dusk)}
-.sk-cat:nth-child(3){border-top:2px solid var(--accent-breeze)}
-.sk-cat:nth-child(4){border-top:2px solid var(--accent-twilight)}
-.sk-cat:nth-child(5){border-top:2px solid var(--accent-sunset-soft)}
-.sk-cat:nth-child(6){border-top:2px solid var(--canvas-mid)}
-.sk-cat:hover{border-color:rgba(255,255,255,.2)}
-.sk-head{display:flex;align-items:center;gap:var(--sp-md);margin-bottom:var(--sp-lg)}
-.sk-icon{
-  font-family:var(--font-mono);font-size:12px;letter-spacing:1.2px;
-  text-transform:uppercase;
-}
-.sk-cat:nth-child(1) .sk-icon{color:var(--accent-sunset)}
-.sk-cat:nth-child(2) .sk-icon{color:var(--accent-twilight)}
-.sk-cat:nth-child(3) .sk-icon{color:var(--accent-breeze)}
-.sk-cat:nth-child(4) .sk-icon{color:var(--accent-twilight)}
-.sk-cat:nth-child(5) .sk-icon{color:var(--accent-sunset-soft)}
-.sk-cat:nth-child(6) .sk-icon{color:var(--body-mid)}
-.sk-name{font-size:16px;font-weight:400;color:var(--ink)}
-.sb-wrap{display:flex;flex-wrap:wrap;gap:var(--sp-xs)}
-.sb{
-  padding:var(--sp-xxs) var(--sp-sm);border-radius:var(--radius-sm);
-  font-family:var(--font-mono);font-size:12px;font-weight:400;letter-spacing:1.2px;
-  background:var(--canvas-soft);color:var(--body-mid);border:1px solid var(--hairline);
-  transition:color .2s ease,border-color .2s ease;cursor:default;
-}
-.sk-cat:nth-child(1) .sb:hover{color:var(--accent-sunset);border-color:rgba(255,122,23,.35)}
-.sk-cat:nth-child(2) .sb:hover{color:var(--accent-twilight);border-color:rgba(196,181,253,.35)}
-.sk-cat:nth-child(3) .sb:hover{color:var(--accent-breeze);border-color:rgba(160,195,236,.35)}
-.sk-cat:nth-child(4) .sb:hover{color:var(--accent-twilight);border-color:rgba(196,181,253,.35)}
-.sk-cat:nth-child(5) .sb:hover{color:var(--accent-sunset-soft);border-color:rgba(255,194,133,.35)}
-.sk-cat:nth-child(6) .sb:hover{color:var(--ink);border-color:rgba(255,255,255,.25)}
-
-/* ── FORMATION ── */
-#formation{background:var(--canvas)}
-.fo-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:var(--sp-md)}
-.fo-card{
-  background:var(--canvas-card);border:1px solid var(--hairline);
-  border-radius:var(--radius-sm);padding:var(--sp-xl);
-  transition:border-color .2s ease;position:relative;overflow:hidden;
-}
-.fo-card:nth-child(1){border-bottom:2px solid var(--accent-sunset)}
-.fo-card:nth-child(2){border-bottom:2px solid var(--accent-dusk)}
-.fo-card:nth-child(3){border-bottom:2px solid var(--accent-breeze)}
-.fo-card:nth-child(4){border-bottom:2px solid var(--canvas-mid)}
-.fo-card:hover{border-color:rgba(255,255,255,.2)}
-.fo-year{
-  font-family:var(--font-mono);font-size:12px;font-weight:400;
-  letter-spacing:1.2px;text-transform:uppercase;
-  margin-bottom:var(--sp-md);
-}
-.fo-card:nth-child(1) .fo-year{color:var(--accent-sunset)}
-.fo-card:nth-child(2) .fo-year{color:var(--accent-twilight)}
-.fo-card:nth-child(3) .fo-year{color:var(--accent-breeze)}
-.fo-card:nth-child(4) .fo-year{color:var(--body-mid)}
-.fo-deg{font-size:20px;font-weight:400;color:var(--ink);margin-bottom:var(--sp-xs);letter-spacing:0}
-.fo-school{color:var(--body-mid);font-size:14px;line-height:20px}
-
-/* ── PROJECTS ── */
-#projects{background:var(--canvas-soft)}
-.pr-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:var(--sp-md)}
-.pr-card{
-  background:var(--canvas-card);border:1px solid var(--hairline);
-  border-radius:var(--radius-sm);padding:var(--sp-xl);
-  transition:border-color .2s ease;display:flex;flex-direction:column;
-  position:relative;overflow:hidden;
-}
-.pr-card::before{
-  content:'';position:absolute;top:0;left:0;right:0;height:2px;
-}
-.pr-card:nth-child(1)::before{background:var(--accent-sunset)}
-.pr-card:nth-child(2)::before{background:var(--accent-dusk)}
-.pr-card:nth-child(3)::before{background:linear-gradient(90deg,var(--accent-sunset),var(--accent-dusk))}
-.pr-card:nth-child(4)::before{background:var(--accent-breeze)}
-.pr-card:nth-child(5)::before{background:var(--accent-twilight)}
-.pr-card:nth-child(6)::before{background:var(--canvas-mid)}
-.pr-card:hover{border-color:rgba(255,255,255,.2)}
-.pr-eyebrow{
-  font-family:var(--font-mono);font-size:12px;
-  letter-spacing:1.2px;text-transform:uppercase;margin-bottom:var(--sp-md);
-}
-.pr-card:nth-child(1) .pr-eyebrow{color:var(--accent-sunset)}
-.pr-card:nth-child(2) .pr-eyebrow{color:var(--accent-twilight)}
-.pr-card:nth-child(3) .pr-eyebrow{color:var(--accent-sunset-soft)}
-.pr-card:nth-child(4) .pr-eyebrow{color:var(--accent-breeze)}
-.pr-card:nth-child(5) .pr-eyebrow{color:var(--accent-twilight)}
-.pr-card:nth-child(6) .pr-eyebrow{color:var(--body-mid)}
-.pr-title{font-size:20px;font-weight:400;color:var(--ink);margin-bottom:var(--sp-sm);letter-spacing:0}
-.pr-org{font-family:var(--font-mono);font-size:12px;color:var(--body-mid);letter-spacing:1.2px;text-transform:uppercase;margin-bottom:var(--sp-md)}
-.pr-desc{font-size:14px;color:var(--body);line-height:20px;margin-bottom:var(--sp-xl);flex:1}
-.pr-link{
-  display:inline-flex;align-items:center;gap:var(--sp-sm);
-  padding:var(--sp-xs) var(--sp-md);
-  border-radius:var(--radius-pill);border:1px solid var(--hairline);
-  font-size:14px;font-weight:400;color:var(--ink);text-decoration:none;
-  align-self:flex-start;transition:border-color .2s ease,color .2s ease;
-}
-.pr-card:nth-child(1) .pr-link:hover{border-color:rgba(255,122,23,.5);color:var(--accent-sunset)}
-.pr-card:nth-child(2) .pr-link:hover{border-color:rgba(196,181,253,.4);color:var(--accent-twilight)}
-.pr-card:nth-child(3) .pr-link:hover{border-color:rgba(255,122,23,.4);color:var(--accent-sunset-soft)}
-.pr-card:nth-child(4) .pr-link:hover{border-color:rgba(160,195,236,.4);color:var(--accent-breeze)}
-.pr-card:nth-child(5) .pr-link:hover{border-color:rgba(196,181,253,.4);color:var(--accent-twilight)}
-.pr-card:nth-child(6) .pr-link:hover{border-color:rgba(255,255,255,.35);color:var(--ink)}
-
-/* ── RECOMMANDATIONS ── */
-#recommandations{background:var(--canvas)}
-.re-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-xl);margin-bottom:var(--sp-xl)}
-.re-card{
-  background:var(--canvas-card);border:1px solid var(--hairline);
-  border-radius:var(--radius-sm);padding:var(--sp-xl);
-  transition:border-color .2s ease;
-}
-.re-card:nth-child(1){border-left:2px solid var(--accent-sunset)}
-.re-card:nth-child(2){border-left:2px solid var(--accent-dusk)}
-.re-card:hover{border-color:rgba(255,255,255,.2)}
-.re-quote{font-size:16px;color:var(--body);line-height:24px;margin-bottom:var(--sp-xl)}
-.re-auth{display:flex;align-items:center;gap:var(--sp-md)}
-.re-av{
-  width:36px;height:36px;border-radius:var(--radius-sm);
-  display:flex;align-items:center;justify-content:center;
-  font-family:var(--font-mono);font-weight:400;font-size:12px;letter-spacing:1.2px;
-  flex-shrink:0;border:1px solid var(--hairline);
-}
-.re-card:nth-child(1) .re-av{background:rgba(255,122,23,.1);color:var(--accent-sunset);border-color:rgba(255,122,23,.3)}
-.re-card:nth-child(2) .re-av{background:rgba(124,58,237,.1);color:var(--accent-twilight);border-color:rgba(196,181,253,.25)}
-.re-name{font-weight:400;font-size:14px;color:var(--ink)}
-.re-role{font-family:var(--font-mono);font-size:12px;color:var(--body-mid);letter-spacing:1.2px;text-transform:uppercase}
-.re-count{
-  color:var(--body-mid);font-family:var(--font-mono);font-size:12px;letter-spacing:1.2px;
-  text-transform:uppercase;padding:var(--sp-md) var(--sp-xl);
-  background:var(--canvas-card);border:1px solid var(--hairline);border-radius:var(--radius-sm);
-}
-.re-count strong{color:var(--accent-sunset);font-weight:400}
-
-/* ── CONTACT ── */
-#contact{
-  background:radial-gradient(ellipse 80% 50% at 50% 100%,rgba(124,58,237,.1) 0%,transparent 60%),
-             var(--canvas-soft);
-  padding-bottom:0;
-}
-.ct-inner{text-align:center;padding-bottom:var(--sp-4xl)}
-.ct-links{display:flex;justify-content:center;flex-wrap:wrap;gap:var(--sp-sm);margin-top:var(--sp-2xl)}
-.ct-body{font-size:18px;font-weight:400;line-height:28px;color:var(--body);max-width:540px;margin:0 auto}
-
-/* ── FOOTER ── */
-footer{
-  border-top:1px solid var(--hairline);
-  padding:var(--sp-3xl) var(--sp-xl);
-  background:var(--canvas);
-}
-.ft-inner{
-  display:flex;align-items:center;justify-content:space-between;
-  flex-wrap:wrap;gap:var(--sp-lg);max-width:1200px;margin:0 auto;
-}
-.ft-copy{font-family:var(--font-mono);font-size:12px;color:var(--body-mid);letter-spacing:1.2px;text-transform:uppercase}
-.ft-soc{display:flex;gap:var(--sp-sm)}
-.soc-btn{
-  width:36px;height:36px;border-radius:var(--radius-pill);
-  display:flex;align-items:center;justify-content:center;
-  background:transparent;border:1px solid var(--hairline);
-  color:var(--body-mid);text-decoration:none;font-size:14px;
-  transition:border-color .2s ease,color .2s ease;
-}
-.soc-btn:hover{border-color:rgba(255,255,255,.35);color:var(--ink)}
-
-/* ── BACK TO TOP ── */
-#back-top{
-  position:fixed;bottom:var(--sp-2xl);right:var(--sp-2xl);
-  width:40px;height:40px;border-radius:var(--radius-pill);
-  background:transparent;border:1px solid rgba(255,122,23,.3);
-  display:flex;align-items:center;justify-content:center;
-  color:var(--accent-sunset);text-decoration:none;font-size:12px;
-  opacity:0;transform:translateY(16px);transition:all .3s ease;z-index:999;
-}
-#back-top.show{opacity:1;transform:translateY(0)}
-#back-top:hover{border-color:rgba(255,122,23,.7);color:var(--accent-sunset-soft)}
-
-/* ── PER-SECTION EYEBROW ACCENTS ── */
-#about .eyebrow{color:var(--accent-breeze)}
-#experience .eyebrow{color:var(--accent-sunset)}
-#skills .eyebrow{color:var(--accent-dusk);color:var(--accent-twilight)}
-#formation .eyebrow{color:var(--accent-breeze)}
-#projects .eyebrow{color:var(--accent-sunset)}
-#recommandations .eyebrow{color:var(--accent-twilight)}
-#contact .eyebrow{color:var(--accent-dusk);color:var(--accent-twilight)}
-
-/* ── HERO TAGLINE ACCENT ── */
-.hero-tagline{border-left:2px solid var(--accent-dusk)}
-
-/* ── RESPONSIVE ── */
-@media(max-width:768px){
-  .hero-inner{grid-template-columns:1fr;text-align:center}
-  .avatar{margin:0 auto;width:120px;height:120px;font-size:20px}
-  .hero-tagline{margin:0 auto var(--sp-2xl)}
-  .hero-loc,.hero-cta{justify-content:center}
-  .about-grid{grid-template-columns:1fr;gap:var(--sp-2xl)}
-  .re-grid{grid-template-columns:1fr}
-  .nav-links{
-    display:none;flex-direction:column;
-    position:absolute;top:57px;left:0;right:0;
-    background:var(--canvas);border-bottom:1px solid var(--hairline);
-    padding:var(--sp-md);gap:var(--sp-xs);
-  }
-  .nav-links.open{display:flex}
-  .hamburger{display:flex}
-  .hero-name{font-size:clamp(40px,10vw,72px);letter-spacing:-1.8px}
-}
-@media(max-width:600px){
-  section{padding:var(--sp-3xl) 0}
-  .about-stats{grid-template-columns:1fr 1fr}
-  .fo-grid,.pr-grid{grid-template-columns:1fr}
-  .tl-sub{margin-left:var(--sp-xs);padding-left:var(--sp-md)}
-}
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/bold/style.css"/>
+<link rel="stylesheet" href="style.css"/>
+<script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
+<div id="progress" aria-hidden="true"></div>
 
-<div id="progress-bar"></div>
-
-<nav id="navbar">
-  <div class="nav-logo">F·P·M</div>
-  <ul class="nav-links" id="nav-links">
-    <li><a href="#hero">Accueil</a></li>
+<nav class="nav" aria-label="Navigation principale">
+  <a class="nav__logo" href="#hero">F<i>·</i>P<i>·</i>M</a>
+  <ul class="nav__links" id="nav-links">
     <li><a href="#about">À propos</a></li>
     <li><a href="#experience">Expérience</a></li>
     <li><a href="#skills">Compétences</a></li>
@@ -534,391 +28,208 @@ footer{
     <li><a href="#recommandations">Témoignages</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
-  <div class="hamburger" id="hamburger" onclick="toggleMenu()">
-    <span></span><span></span><span></span>
-  </div>
+  <button class="nav__toggle" id="nav-toggle" aria-label="Menu" aria-expanded="false" aria-controls="nav-links"><i class="ph-bold ph-list"></i></button>
 </nav>
 
-<!-- ========== HERO ========== -->
-<section id="hero">
-  <div class="container">
-    <div class="hero-inner">
-      <div>
-        <div class="hero-eyebrow fade-up">Ingénieur Cloud · DevOps · 15+ ans d'expérience</div>
-        <h1 class="hero-name fade-up d1">François<br>Poidevin<br>Merdrignac</h1>
-        <p class="hero-subtitle fade-up d2">Cloud &amp; DevOps · Mobilité Autonome &amp; Villes Connectées · Go · Kubernetes · AWS</p>
-        <p class="hero-tagline fade-up d3">De la biotechnologie à l'ingénierie Cloud — 15 ans de carrière informatique dans les services cloud, la mobilité autonome et les systèmes embarqués.</p>
-        <p class="hero-loc fade-up d4"><i class="fas fa-map-marker-alt" style="font-size:12px"></i> Toulouse, Occitanie, France &nbsp;·&nbsp; Hybride</p>
-        <div class="hero-cta fade-up d5">
-          <a href="https://fr.linkedin.com/in/poidevinfrancois" target="_blank" class="btn-p"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
-          <a href="https://francois-poidevin.github.io/career/" target="_blank" class="btn-o"><i class="fas fa-globe"></i> Site perso</a>
-          <a href="#contact" class="btn-o"><i class="fas fa-paper-plane"></i> Contact</a>
-        </div>
-      </div>
-      <div class="avatar fade-right d2">FP</div>
-    </div>
+<main>
+<!-- ========== HERO · Keyboard.mp4 ========== -->
+<header class="scrub hero" id="hero" data-scrub data-span="2" data-fade="0.6">
+  <div class="scrub__stage">
+    <video muted playsinline preload="auto" aria-hidden="true"><source src="media/keyboard.mp4" type="video/mp4"/></video>
   </div>
-  <div class="scroll-hint"><i class="fas fa-chevron-down" style="font-size:12px"></i> Scroll</div>
-</section>
-
-<div class="divider" style="margin:0"></div>
-
-<!-- ========== ABOUT ========== -->
-<section id="about">
-  <div class="container">
-    <div class="eyebrow fade-up">À propos</div>
-    <h2 class="section-title fade-up d1">Qui suis-je ?</h2>
-    <div class="about-grid">
-      <div class="about-text fade-left d1">
-        <p>Ingénieur <strong>Cloud &amp; DevOps</strong> basé à <strong>Toulouse</strong>, je cumule plus de <strong>15 ans d'expérience</strong> dans le développement logiciel, de la programmation système au cloud natif en passant par les applications d'entreprise.</p>
-        <p>Mon parcours est atypique : après 2 ans en <strong>Biotechnologie</strong>, j'ai opéré une reconversion résolue vers l'informatique. Depuis lors, j'ai progressé des environnements <strong>Delphi / Java</strong> vers les architectures <strong>cloud modernes</strong> — Kubernetes, Istio, AWS, Go — au service des <strong>véhicules connectés et des villes intelligentes</strong>.</p>
-        <p>Mes collègues me décrivent comme <strong>autonome, calme sous pression et proactif</strong>, capable de prendre des décisions difficiles tout en fédérant les équipes autour des objectifs techniques.</p>
-        <div class="lang-wrap">
-          <span class="lang-b"><i class="fas fa-flag" style="font-size:12px"></i> Français — Natif</span>
-          <span class="lang-b"><i class="fas fa-globe" style="font-size:12px"></i> English — Professional</span>
-        </div>
-      </div>
-      <div class="fade-right d2">
-        <div class="about-stats">
-          <div class="stat-card"><span class="stat-val">15+</span><span class="stat-lbl">Années IT</span></div>
-          <div class="stat-card"><span class="stat-val">8 ans</span><span class="stat-lbl">Cloud Continental</span></div>
-          <div class="stat-card"><span class="stat-val">4+</span><span class="stat-lbl">Recommandations</span></div>
-          <div class="stat-card"><span class="stat-val">Go</span><span class="stat-lbl">Cloud · DevOps</span></div>
-        </div>
+  <div class="hero__body">
+    <div class="wrap hero__inner">
+      <p class="eyebrow">Ingénieur Cloud · DevOps · 15+ ans</p>
+      <h1>François Poidevin <mark>Merdrignac</mark></h1>
+      <p class="sub">De la biotechnologie au cloud natif : Go, Kubernetes et AWS pour la mobilité autonome et les villes connectées.</p>
+      <div class="hero__cta">
+        <a class="btn btn--primary" href="#contact"><i class="ph-bold ph-paper-plane-tilt"></i> Contact</a>
+        <a class="btn btn--ghost" href="https://fr.linkedin.com/in/poidevinfrancois" target="_blank" rel="noopener"><i class="ph-bold ph-linkedin-logo"></i> LinkedIn</a>
       </div>
     </div>
+    <div class="hero__bar" aria-hidden="true"><i></i></div>
+  </div>
+</header>
+
+<div class="band-wrap" aria-hidden="true">
+  <div class="band"><div class="band__track">
+    <span>Go</span><span>Kubernetes</span><span>AWS</span><span>Terraform</span><span>Istio</span><span>Docker</span><span>CI/CD</span><span>Java</span><span>PostGIS</span><span>Computer Vision</span>
+    <span>Go</span><span>Kubernetes</span><span>AWS</span><span>Terraform</span><span>Istio</span><span>Docker</span><span>CI/CD</span><span>Java</span><span>PostGIS</span><span>Computer Vision</span>
+  </div><div class="band__track" aria-hidden="true">
+    <span>Go</span><span>Kubernetes</span><span>AWS</span><span>Terraform</span><span>Istio</span><span>Docker</span><span>CI/CD</span><span>Java</span><span>PostGIS</span><span>Computer Vision</span>
+    <span>Go</span><span>Kubernetes</span><span>AWS</span><span>Terraform</span><span>Istio</span><span>Docker</span><span>CI/CD</span><span>Java</span><span>PostGIS</span><span>Computer Vision</span>
+  </div></div>
+</div>
+
+<!-- ========== À PROPOS ========== -->
+<section class="sec sec--rise about" id="about">
+  <div class="wrap about__grid">
+    <div class="about__text">
+      <h2 class="title reveal">Qui suis-je ?</h2>
+      <p class="reveal" style="--i:1">Ingénieur <strong>Cloud &amp; DevOps</strong> basé à <strong>Toulouse</strong>, je cumule plus de <strong>15 ans d'expérience</strong> dans le développement logiciel, de la programmation système au cloud natif en passant par les applications d'entreprise.</p>
+      <p class="reveal" style="--i:2">Mon parcours est atypique : après 2 ans en <strong>Biotechnologie</strong>, j'ai opéré une reconversion résolue vers l'informatique. Depuis, j'ai progressé des environnements <strong>Delphi / Java</strong> vers les architectures <strong>cloud modernes</strong> (Kubernetes, Istio, AWS, Go) au service des <strong>véhicules connectés et des villes intelligentes</strong>.</p>
+      <p class="reveal" style="--i:3">Mes collègues me décrivent comme <strong>autonome, calme sous pression et proactif</strong>, capable de prendre des décisions difficiles tout en fédérant les équipes autour des objectifs techniques.</p>
+      <div class="about__langs reveal" style="--i:4">
+        <span class="tag">Français · Natif</span><span class="tag">English · Professional</span>
+      </div>
+      <p class="about__loc reveal" style="--i:5"><i class="ph-bold ph-map-pin"></i> Toulouse, Occitanie, France · Hybride</p>
+    </div>
+    <div class="stats">
+      <div class="stat reveal"><b>15+</b><span>Années IT</span></div>
+      <div class="stat reveal" style="--i:1"><b>8 ans</b><span>Cloud Continental</span></div>
+      <div class="stat reveal" style="--i:2"><b>4+</b><span>Recommandations</span></div>
+      <div class="stat reveal" style="--i:3"><b>Go</b><span>Cloud · DevOps</span></div>
+    </div>
   </div>
 </section>
 
-<div class="divider" style="margin:0"></div>
-
-<!-- ========== EXPERIENCE ========== -->
-<section id="experience">
-  <div class="container">
-    <div class="eyebrow fade-up">Expérience</div>
-    <h2 class="section-title fade-up d1">Parcours Professionnel</h2>
+<!-- ========== EXPÉRIENCE · Office.mp4 ========== -->
+<section class="sec sec--fall scrub exp" id="experience" data-scrub>
+  <div class="scrub__stage">
+    <video muted playsinline preload="auto" aria-hidden="true"><source src="media/office.mp4" type="video/mp4"/></video>
+  </div>
+  <div class="scrub__body wrap">
+    <h2 class="title reveal">Parcours professionnel</h2>
     <div class="timeline">
+      <article class="card-glass reveal">
+        <div class="job__head"><h3 class="job__co">AUMOVIO · Autonomous Mobility</h3><span class="job__badge">CDI · En poste</span></div>
+        <p class="job__role">Ingénieur Cloud (+DevOps)</p>
+        <p class="job__meta">Toulouse · Hybride · sept. 2025 – aujourd'hui · 10 mois</p>
+        <p class="job__desc">Business Unit spécialisée dans les véhicules connectés / autonomes et les services pour villes connectées. Spin-off de Continental ITS.</p>
+        <ul class="job__list">
+          <li>Conception et déploiement d'architectures Cloud natives pour la mobilité autonome</li>
+          <li>Contribution au projet Xelve eHorizon : plateforme prédictive cloud pour véhicules intelligents (HD Maps, alertes dynamiques, ADAS)</li>
+          <li>Pipeline CI/CD, orchestration de conteneurs, Infrastructure as Code</li>
+          <li>Collaboration transverse DevOps / équipes embarquées</li>
+        </ul>
+        <div class="tags"><span class="tag">Go</span><span class="tag">Kubernetes</span><span class="tag">AWS</span><span class="tag">Terraform</span><span class="tag">Docker</span><span class="tag">CI/CD</span></div>
+      </article>
 
-      <!-- AUMOVIO -->
-      <div class="tl-item fade-up">
-        <div class="tl-dot"></div>
-        <div class="tl-card">
-          <div class="job-head">
-            <div class="job-co">AUMOVIO — Autonomous Mobility</div>
-            <span class="jbadge">CDI · En poste</span>
-          </div>
-          <p class="job-role">Ingénieur Cloud (+DevOps)</p>
-          <p class="job-loc"><i class="fas fa-map-marker-alt" style="font-size:10px"></i> Toulouse, France · Hybride &nbsp;·&nbsp; sept. 2025 – aujourd'hui · 10 mois</p>
-          <p class="job-desc">Business Unit spécialisée dans les véhicules connectés / autonomes et les services pour villes connectées. Spin-off de Continental ITS.</p>
-          <ul class="job-bullets">
-            <li>Conception et déploiement d'architectures Cloud natives pour la mobilité autonome</li>
-            <li>Contribution au projet Xelve eHorizon — plateforme prédictive cloud pour véhicules intelligents (HD Maps, alertes dynamiques, ADAS)</li>
-            <li>Pipeline CI/CD, orchestration de conteneurs, Infrastructure as Code</li>
-            <li>Collaboration transverse DevOps / équipes embarquées</li>
-          </ul>
-          <div class="tech-tags">
-            <span class="tt">Go</span><span class="tt">Kubernetes</span><span class="tt">AWS</span>
-            <span class="tt">Terraform</span><span class="tt">Docker</span><span class="tt">CI/CD</span>
-          </div>
+      <article class="card-glass reveal">
+        <div class="job__head"><h3 class="job__co">Continental ITS</h3><span class="job__badge">CDI</span></div>
+        <p class="job__role">Ingénieur Cloud &amp; DevOps</p>
+        <p class="job__meta">Toulouse · 2017 – 2025 · 8 ans</p>
+        <p class="job__desc">Architectures cloud haute disponibilité pour la mobilité autonome et les systèmes ITS. Finaliste Automotive Awards Top 20.</p>
+        <div class="job__sub">
+          <div><b>Cloud Architect · Plateforme Scalable</b><small>2021 – 2025</small><p>Architecture haute disponibilité, gestion automatisée des coûts Cloud, qualité et cybersécurité. Détection automatique de failles avec évaluation d'impact.</p></div>
+          <div><b>DevOps Engineer · VIDRIVE (France 2030)</b><small>2019 – 2021</small><p>Validation et intégration de données réelles &amp; synthétiques pour le développement de véhicules autonomes. Labellisé plan d'investissement France 2030.</p></div>
+          <div><b>Software Engineer · Systèmes embarqués ITS</b><small>2017 – 2019</small><p>Développement de services cloud pour systèmes embarqués véhiculaires. Intégration Kubernetes, Istio, microservices Go.</p></div>
         </div>
-      </div>
+        <div class="tags"><span class="tag">Go</span><span class="tag">Kubernetes</span><span class="tag">Istio</span><span class="tag">AWS</span><span class="tag">Terraform</span><span class="tag">Jenkins</span><span class="tag">Microservices</span><span class="tag">Computer Vision</span></div>
+      </article>
 
-      <!-- CONTINENTAL -->
-      <div class="tl-item fade-up d1">
-        <div class="tl-dot"></div>
-        <div class="tl-card">
-          <div class="job-head">
-            <div class="job-co">Continental ITS</div>
-            <span class="jbadge">CDI</span>
-          </div>
-          <p class="job-role">Ingénieur Cloud &amp; DevOps</p>
-          <p class="job-loc"><i class="fas fa-map-marker-alt" style="font-size:10px"></i> Toulouse, France &nbsp;·&nbsp; 2017 – 2025 · 8 ans</p>
-          <p class="job-desc">Architectures cloud haute disponibilité pour la mobilité autonome et les systèmes ITS. Finaliste Automotive Awards Top 20.</p>
-          <div class="tl-sub">
-            <div class="tl-sub-card">
-              <div class="sub-role">Cloud Architect — Plateforme Scalable</div>
-              <div class="sub-period">2021 – 2025</div>
-              <div class="sub-desc">Architecture haute disponibilité, gestion automatisée des coûts Cloud, qualité et cybersécurité. Détection automatique de failles avec évaluation d'impact.</div>
-            </div>
-            <div class="tl-sub-card">
-              <div class="sub-role">DevOps Engineer — VIDRIVE (France 2030)</div>
-              <div class="sub-period">2019 – 2021</div>
-              <div class="sub-desc">Validation et intégration de données réelles &amp; synthétiques pour le développement de véhicules autonomes. Labellisé plan d'investissement France 2030.</div>
-            </div>
-            <div class="tl-sub-card">
-              <div class="sub-role">Software Engineer — Systèmes embarqués ITS</div>
-              <div class="sub-period">2017 – 2019</div>
-              <div class="sub-desc">Développement de services cloud pour systèmes embarqués véhiculaires. Intégration Kubernetes, Istio, microservices Go.</div>
-            </div>
-          </div>
-          <div class="tech-tags">
-            <span class="tt">Go</span><span class="tt">Kubernetes</span><span class="tt">Istio</span>
-            <span class="tt">AWS</span><span class="tt">Terraform</span><span class="tt">Jenkins</span>
-            <span class="tt">Microservices</span><span class="tt">Computer Vision</span>
-          </div>
-        </div>
-      </div>
+      <article class="card-glass reveal">
+        <div class="job__head"><h3 class="job__co">GLS · General Logistics Systems</h3><span class="job__badge">CDI</span></div>
+        <p class="job__role">Développeur Logiciel</p>
+        <p class="job__meta">Toulouse · 2013 – 2017 · 4 ans</p>
+        <p class="job__desc">Développement d'outils de géolocalisation et d'optimisation de tournées à l'échelle nationale.</p>
+        <ul class="job__list">
+          <li>Géolocalisation d'adresses postales via API B.A.N. pour résoudre les problèmes de Route Inspection (OSRM)</li>
+          <li>Optimisation Vehicle Routing (JSprit) à l'échelle nationale</li>
+          <li>Développement d'interfaces de gestion et de reporting</li>
+        </ul>
+        <div class="tags"><span class="tag">Java</span><span class="tag">OSRM</span><span class="tag">PostGIS</span><span class="tag">QGIS</span><span class="tag">API B.A.N.</span><span class="tag">SQL</span></div>
+      </article>
 
-      <!-- GLS -->
-      <div class="tl-item fade-up d2">
-        <div class="tl-dot"></div>
-        <div class="tl-card">
-          <div class="job-head">
-            <div class="job-co">GLS — General Logistics Systems</div>
-            <span class="jbadge">CDI</span>
-          </div>
-          <p class="job-role">Développeur Logiciel</p>
-          <p class="job-loc"><i class="fas fa-map-marker-alt" style="font-size:10px"></i> Toulouse, France &nbsp;·&nbsp; 2013 – 2017 · 4 ans</p>
-          <p class="job-desc">Développement d'outils de géolocalisation et d'optimisation de tournées à l'échelle nationale.</p>
-          <ul class="job-bullets">
-            <li>Géolocalisation d'adresses postales via API B.A.N. pour résoudre les problèmes de Route Inspection (OSRM)</li>
-            <li>Optimisation Vehicle Routing (JSprit) à l'échelle nationale</li>
-            <li>Développement d'interfaces de gestion et de reporting</li>
-          </ul>
-          <div class="tech-tags">
-            <span class="tt">Java</span><span class="tt">OSRM</span><span class="tt">PostGIS</span>
-            <span class="tt">QGIS</span><span class="tt">API B.A.N.</span><span class="tt">SQL</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- EARLIER -->
-      <div class="tl-item fade-up d3">
-        <div class="tl-dot"></div>
-        <div class="tl-card">
-          <div class="job-head">
-            <div class="job-co">Expériences antérieures</div>
-            <span class="jbadge">2006 – 2013</span>
-          </div>
-          <p class="job-role">Développeur Logiciel — Delphi / Java / PHP</p>
-          <p class="job-loc"><i class="fas fa-map-marker-alt" style="font-size:10px"></i> France &nbsp;·&nbsp; Divers secteurs</p>
-          <p class="job-desc">Développement d'applications métier en Delphi, Java et PHP. Reconversion professionnelle depuis la Biotechnologie vers l'informatique en 2008–2009.</p>
-          <div class="tech-tags">
-            <span class="tt">Delphi</span><span class="tt">Java</span><span class="tt">PHP</span>
-            <span class="tt">Visual Basic</span><span class="tt">SQL</span>
-          </div>
-        </div>
-      </div>
-
+      <article class="card-glass reveal">
+        <div class="job__head"><h3 class="job__co">Expériences antérieures</h3><span class="job__badge">2006 – 2013</span></div>
+        <p class="job__role">Développeur Logiciel · Delphi / Java / PHP</p>
+        <p class="job__meta">France · Divers secteurs</p>
+        <p class="job__desc">Développement d'applications métier en Delphi, Java et PHP. Reconversion professionnelle depuis la Biotechnologie vers l'informatique en 2008–2009.</p>
+        <div class="tags"><span class="tag">Delphi</span><span class="tag">Java</span><span class="tag">PHP</span><span class="tag">Visual Basic</span><span class="tag">SQL</span></div>
+      </article>
     </div>
   </div>
 </section>
 
-<div class="divider" style="margin:0"></div>
-
-<!-- ========== SKILLS ========== -->
-<section id="skills">
-  <div class="container">
-    <div class="eyebrow fade-up">Compétences</div>
-    <h2 class="section-title fade-up d1">Stack Technique</h2>
-    <div class="skills-grid">
-      <div class="sk-cat fade-up">
-        <div class="sk-head"><span class="sk-icon">CLOUD</span><span class="sk-name">Cloud & Infrastructure</span></div>
-        <div class="sb-wrap">
-          <span class="sb">AWS</span><span class="sb">Kubernetes</span><span class="sb">Docker</span>
-          <span class="sb">Istio</span><span class="sb">Terraform</span><span class="sb">Microservices</span><span class="sb">Haute dispo.</span>
-        </div>
-      </div>
-      <div class="sk-cat fade-up d1">
-        <div class="sk-head"><span class="sk-icon">CICD</span><span class="sk-name">DevOps & CI/CD</span></div>
-        <div class="sb-wrap">
-          <span class="sb">Jenkins</span><span class="sb">Git / Bitbucket</span><span class="sb">Artifactory</span>
-          <span class="sb">YAML</span><span class="sb">GitOps</span><span class="sb">Jira / Confluence</span>
-        </div>
-      </div>
-      <div class="sk-cat fade-up d2">
-        <div class="sk-head"><span class="sk-icon">CODE</span><span class="sk-name">Langages</span></div>
-        <div class="sb-wrap">
-          <span class="sb">Go / Golang</span><span class="sb">Java / Spring</span>
-          <span class="sb">JavaScript</span><span class="sb">PHP</span><span class="sb">C++</span>
-          <span class="sb">Delphi / Pascal</span><span class="sb">Visual Basic</span><span class="sb">SQL</span>
-        </div>
-      </div>
-      <div class="sk-cat fade-up d3">
-        <div class="sk-head"><span class="sk-icon">GEO</span><span class="sk-name">Mobilité & SIG</span></div>
-        <div class="sb-wrap">
-          <span class="sb">ADAS / ITS</span><span class="sb">eHorizon</span>
-          <span class="sb">QGIS</span><span class="sb">PostGIS / PostGres</span>
-          <span class="sb">OSRM</span><span class="sb">API B.A.N.</span>
-        </div>
-      </div>
-      <div class="sk-cat fade-up d4">
-        <div class="sk-head"><span class="sk-icon">AI</span><span class="sk-name">IA & Computer Vision</span></div>
-        <div class="sb-wrap">
-          <span class="sb">Computer Vision</span><span class="sb">Roboflow</span>
-          <span class="sb">Détection d'objets</span><span class="sb">Données synthétiques</span><span class="sb">ML embarqué</span>
-        </div>
-      </div>
-      <div class="sk-cat fade-up d5">
-        <div class="sk-head"><span class="sk-icon">MGT</span><span class="sk-name">Management & Méthodes</span></div>
-        <div class="sb-wrap">
-          <span class="sb">Gestion de projet</span><span class="sb">Team Lead</span>
-          <span class="sb">Agile / Scrum</span><span class="sb">UML</span>
-          <span class="sb">Spécifications fonctionnelles</span><span class="sb">Autonomie</span>
-        </div>
-      </div>
+<!-- ========== COMPÉTENCES ========== -->
+<section class="sec sec--rise skills" id="skills">
+  <div class="wrap">
+    <p class="eyebrow reveal" style="color:var(--teal)">Compétences</p>
+    <h2 class="title reveal" style="--i:1">Stack technique</h2>
+    <div class="bento">
+      <div class="cell cell--cloud reveal"><h3><small>CLOUD</small>Cloud &amp; Infrastructure</h3><ul><li>AWS</li><li>Kubernetes</li><li>Docker</li><li>Istio</li><li>Terraform</li><li>Microservices</li><li>Haute dispo.</li></ul></div>
+      <div class="cell cell--cicd reveal" style="--i:1"><h3><small>CICD</small>DevOps &amp; CI/CD</h3><ul><li>Jenkins</li><li>Git / Bitbucket</li><li>Artifactory</li><li>YAML</li><li>GitOps</li><li>Jira / Confluence</li></ul></div>
+      <div class="cell cell--code reveal" style="--i:2"><h3><small>CODE</small>Langages</h3><ul><li>Go / Golang</li><li>Java / Spring</li><li>JavaScript</li><li>PHP</li><li>C++</li><li>Delphi / Pascal</li><li>Visual Basic</li><li>SQL</li></ul></div>
+      <div class="cell cell--geo reveal" style="--i:3"><h3><small>GEO</small>Mobilité &amp; SIG</h3><ul><li>ADAS / ITS</li><li>eHorizon</li><li>QGIS</li><li>PostGIS / PostGres</li><li>OSRM</li><li>API B.A.N.</li></ul></div>
+      <div class="cell cell--ai reveal" style="--i:4"><h3><small>AI</small>IA &amp; Computer Vision</h3><ul><li>Computer Vision</li><li>Roboflow</li><li>Détection d'objets</li><li>Données synthétiques</li><li>ML embarqué</li></ul></div>
+      <div class="cell cell--mgt reveal" style="--i:5"><h3><small>MGT</small>Management &amp; Méthodes</h3><ul><li>Gestion de projet</li><li>Team Lead</li><li>Agile / Scrum</li><li>UML</li><li>Spécifications fonctionnelles</li><li>Autonomie</li></ul></div>
     </div>
   </div>
 </section>
-
-<div class="divider" style="margin:0"></div>
 
 <!-- ========== FORMATION ========== -->
-<section id="formation">
-  <div class="container">
-    <div class="eyebrow fade-up">Formation</div>
-    <h2 class="section-title fade-up d1">Parcours Académique</h2>
-    <div class="fo-grid">
-      <div class="fo-card fade-up">
-        <div class="fo-year">2009 — 2010</div>
-        <div class="fo-deg">DUT Informatique</div>
-        <div class="fo-school">IUT de Blagnac · Toulouse</div>
-      </div>
-      <div class="fo-card fade-up d1">
-        <div class="fo-year">2008 — 2009</div>
-        <div class="fo-deg">Formation en Informatique</div>
-        <div class="fo-school">Reconversion professionnelle vers l'informatique</div>
-      </div>
-      <div class="fo-card fade-up d2">
-        <div class="fo-year">2010 · Autodidacte</div>
-        <div class="fo-deg">Développement Android</div>
-        <div class="fo-school">Auto-formation · Publication Market Android (mot-clé : "poidevin") — Activity, SQLite, SensorsManager, Internationalisation</div>
-      </div>
-      <div class="fo-card fade-up d3">
-        <div class="fo-year">Antérieur à 2006</div>
-        <div class="fo-deg">Formation en Biotechnologie</div>
-        <div class="fo-school">Technicien Supérieur — Sciences du vivant</div>
-      </div>
+<section class="sec sec--fall formation" id="formation">
+  <div class="wrap">
+    <h2 class="title reveal">Parcours académique</h2>
+    <div class="steps">
+      <article class="step reveal"><time>Avant 2006</time><div><h3>Biotechnologie</h3><p>Technicien Supérieur, sciences du vivant.</p></div></article>
+      <article class="step reveal" style="--i:1"><time>2008 – 2009</time><div><h3>Formation en Informatique</h3><p>Reconversion professionnelle vers l'informatique.</p></div></article>
+      <article class="step reveal" style="--i:2"><time>2009 – 2010</time><div><h3>DUT Informatique</h3><p>IUT de Blagnac, Toulouse.</p></div></article>
+      <article class="step reveal" style="--i:3"><time>2010 · Autodidacte</time><div><h3>Développement Android</h3><p>Auto-formation et publication sur le Market Android : Activity, SQLite, SensorsManager, internationalisation.</p></div></article>
     </div>
   </div>
 </section>
 
-<div class="divider" style="margin:0"></div>
-
-<!-- ========== PROJECTS ========== -->
-<section id="projects">
-  <div class="container">
-    <div class="eyebrow fade-up">Projets</div>
-    <h2 class="section-title fade-up d1">Projets Notables</h2>
-    <div class="pr-grid">
-      <div class="pr-card fade-up">
-        <div class="pr-eyebrow">AUMOVIO · 2025 – aujourd'hui</div>
-        <div class="pr-title">Xelve eHorizon</div>
-        <p class="pr-desc">Plateforme cloud prédictive pour véhicules intelligents — HD Maps, alertes dynamiques, intégration ADAS multi-sources.</p>
-        <a href="https://ow.ly/lxtW50XxjvM" target="_blank" class="pr-link">En savoir plus <i class="fas fa-arrow-right" style="font-size:11px"></i></a>
-      </div>
-      <div class="pr-card fade-up d1">
-        <div class="pr-eyebrow">Continental · France 2030</div>
-        <div class="pr-title">VIDRIVE</div>
-        <p class="pr-desc">Validation et intégration de données réelles &amp; synthétiques pour le développement de véhicules autonomes. Labellisé plan d'investissement France 2030.</p>
-        <a href="#" class="pr-link">Projet France 2030 <i class="fas fa-arrow-right" style="font-size:11px"></i></a>
-      </div>
-      <div class="pr-card fade-up d2">
-        <div class="pr-eyebrow">Continental · Automotive Awards Top 20</div>
-        <div class="pr-title">Plateforme Cloud Scalable</div>
-        <p class="pr-desc">Architecture haute disponibilité pour la gestion automatisée des coûts Cloud, qualité et cybersécurité. Détection automatique de failles avec évaluation d'impact.</p>
-        <a href="#" class="pr-link">Finaliste Automotive Awards <i class="fas fa-arrow-right" style="font-size:11px"></i></a>
-      </div>
-      <div class="pr-card fade-up d3">
-        <div class="pr-eyebrow">GLS · 2013 – 2017</div>
-        <div class="pr-title">Géolocalisation Colis</div>
-        <p class="pr-desc">Géolocalisation d'adresses postales via API B.A.N. pour résoudre les problèmes de Route Inspection (OSRM) et Vehicle Routing (JSprit) à l'échelle nationale.</p>
-        <a href="#" class="pr-link">Voir les détails <i class="fas fa-arrow-right" style="font-size:11px"></i></a>
-      </div>
-      <div class="pr-card fade-up d4">
-        <div class="pr-eyebrow">Projet IA personnel · Roboflow</div>
-        <div class="pr-title">OrthoParking Detection</div>
-        <p class="pr-desc">Modèle de Computer Vision pour la détection de places de parking par vue aérienne/orthogonale. Entraîné et déployé sur Roboflow.</p>
-        <a href="https://universe.roboflow.com/imagedetection-nqskd/orthoparkingdetection" target="_blank" class="pr-link">Voir sur Roboflow <i class="fas fa-arrow-right" style="font-size:11px"></i></a>
-      </div>
-      <div class="pr-card fade-up d5">
-        <div class="pr-eyebrow">Projet personnel · 2010</div>
-        <div class="pr-title">Applications Android</div>
-        <p class="pr-desc">Développement et publication d'applications Android sur le Market — Activity, Intent, SensorsManager, SQLite, internationalisation (recherche "poidevin").</p>
-        <a href="#" class="pr-link">Voir le Market <i class="fas fa-arrow-right" style="font-size:11px"></i></a>
-      </div>
+<!-- ========== PROJETS ========== -->
+<section class="sec sec--rise projects" id="projects">
+  <div class="wrap">
+    <h2 class="title reveal">Projets notables</h2>
+    <div class="rows">
+      <article class="row reveal"><div><small>AUMOVIO · 2025 – aujourd'hui</small><h3>Xelve eHorizon</h3></div><p>Plateforme cloud prédictive pour véhicules intelligents : HD Maps, alertes dynamiques, intégration ADAS multi-sources.</p><a href="https://ow.ly/lxtW50XxjvM" target="_blank" rel="noopener">Voir <i class="ph-bold ph-arrow-up-right"></i></a></article>
+      <article class="row reveal"><div><small>Continental · France 2030</small><h3>VIDRIVE</h3></div><p>Validation et intégration de données réelles &amp; synthétiques pour le développement de véhicules autonomes. Labellisé plan d'investissement France 2030.</p><span></span></article>
+      <article class="row reveal"><div><small>Continental · Automotive Awards Top 20</small><h3>Plateforme Cloud Scalable</h3></div><p>Architecture haute disponibilité pour la gestion automatisée des coûts Cloud, qualité et cybersécurité. Détection automatique de failles avec évaluation d'impact.</p><span></span></article>
+      <article class="row reveal"><div><small>GLS · 2013 – 2017</small><h3>Géolocalisation Colis</h3></div><p>Géolocalisation d'adresses postales via API B.A.N. pour résoudre les problèmes de Route Inspection (OSRM) et Vehicle Routing (JSprit) à l'échelle nationale.</p><span></span></article>
+      <article class="row reveal"><div><small>Projet IA personnel · Roboflow</small><h3>OrthoParking Detection</h3></div><p>Modèle de Computer Vision pour la détection de places de parking par vue aérienne/orthogonale. Entraîné et déployé sur Roboflow.</p><a href="https://universe.roboflow.com/imagedetection-nqskd/orthoparkingdetection" target="_blank" rel="noopener">Roboflow <i class="ph-bold ph-arrow-up-right"></i></a></article>
+      <article class="row reveal"><div><small>Projet personnel · 2010</small><h3>Applications Android</h3></div><p>Développement et publication d'applications Android sur le Market : Activity, Intent, SensorsManager, SQLite, internationalisation.</p><span></span></article>
     </div>
   </div>
 </section>
-
-<div class="divider" style="margin:0"></div>
 
 <!-- ========== RECOMMANDATIONS ========== -->
-<section id="recommandations">
-  <div class="container">
-    <div class="eyebrow fade-up">Recommandations</div>
-    <h2 class="section-title fade-up d1">Ce qu'on dit de moi</h2>
-    <div class="re-grid">
-      <div class="re-card fade-left">
-        <p class="re-quote">"J'ai eu le plaisir de travailler avec François sur un projet de développement Web et R&D pendant 5 mois. D'un point de vue technique, François a été à l'aise autant dans les phases d'étude que celles de développement. Autonome, il a su faire l'équilibre entre la prise d'initiatives personnelles et la remontée des informations critiques. En conclusion c'est quelqu'un de fiable avec qui je serai heureux de pouvoir travailler à nouveau."</p>
-        <div class="re-auth">
-          <div class="re-av">AM</div>
-          <div>
-            <div class="re-name">Antoine Molières</div>
-            <div class="re-role">Chef de projet — Web &amp; R&D</div>
-          </div>
-        </div>
-      </div>
-      <div class="re-card fade-right">
-        <p class="re-quote">"It was a real pleasure working with François for the last 16 months. The project was touchy, with a high level of pressure, but he remained calm and professional. Not only technically skilled as a developer, he's taking initiatives and we sometimes delegated him part of the developer's team follow-up. François did this smoothly, being also capable of making the tough calls when necessary. A precious stakeholder in a SW development project."</p>
-        <div class="re-auth">
-          <div class="re-av">MG</div>
-          <div>
-            <div class="re-name">Michael Galinaud</div>
-            <div class="re-role">Manager — Projet Software · 16 mois</div>
-          </div>
-        </div>
-      </div>
+<section class="sec sec--fall reco" id="recommandations">
+  <div class="wrap">
+    <p class="eyebrow reveal">Recommandations</p>
+    <h2 class="title reveal" style="--i:1">Ce qu'on dit de moi</h2>
+    <div class="quotes">
+      <figure class="quote reveal" style="margin:0">
+        <blockquote>“Autonome, il a su faire l'équilibre entre la prise d'initiatives personnelles et la remontée des informations critiques. En conclusion c'est quelqu'un de fiable avec qui je serai heureux de pouvoir travailler à nouveau.”</blockquote>
+        <figcaption><span class="av">AM</span><span><b>Antoine Molières</b><span class="role">Chef de projet · Web &amp; R&amp;D</span></span></figcaption>
+      </figure>
+      <figure class="quote reveal" style="margin:0;--i:1">
+        <blockquote>“The project was touchy, with a high level of pressure, but he remained calm and professional. […] A precious stakeholder in a SW development project.”</blockquote>
+        <figcaption><span class="av">MG</span><span><b>Michael Galinaud</b><span class="role">Manager · Projet Software · 16 mois</span></span></figcaption>
+      </figure>
     </div>
-    <div class="re-count fade-up"><strong>4 personnes</strong> ont recommandé François sur LinkedIn</div>
+    <p class="reco__count reveal"><strong>4 personnes</strong> ont recommandé François sur LinkedIn.</p>
   </div>
 </section>
 
-<div class="divider" style="margin:0"></div>
-
 <!-- ========== CONTACT ========== -->
-<section id="contact">
-  <div class="container">
-    <div class="ct-inner fade-up">
-      <div class="eyebrow">Contact</div>
-      <h2 class="section-title">Travaillons ensemble</h2>
-      <p class="ct-body">Ouvert aux opportunités dans le Cloud natif, le DevOps, la mobilité autonome ou les villes connectées — Toulouse ou remote.</p>
-      <div class="ct-links">
-        <a href="https://fr.linkedin.com/in/poidevinfrancois" target="_blank" class="btn-p"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
-        <a href="https://francois-poidevin.github.io/career/" target="_blank" class="btn-o"><i class="fas fa-globe"></i> Site perso</a>
-        <a href="http://www.flickr.com/photos/10698146@N06/" target="_blank" class="btn-o"><i class="fab fa-flickr"></i> Portfolio photo</a>
-        <a href="https://universe.roboflow.com/imagedetection-nqskd/orthoparkingdetection" target="_blank" class="btn-o"><i class="fas fa-eye"></i> Roboflow IA</a>
-      </div>
+<section class="sec sec--rise contact" id="contact">
+  <div class="wrap">
+    <h2 class="title reveal">Travaillons ensemble</h2>
+    <p class="lead reveal" style="--i:1">Ouvert aux opportunités dans le cloud natif, le DevOps, la mobilité autonome ou les villes connectées. Toulouse ou remote.</p>
+    <div class="contact__links reveal" style="--i:2">
+      <a class="btn btn--primary" href="https://fr.linkedin.com/in/poidevinfrancois" target="_blank" rel="noopener"><i class="ph-bold ph-linkedin-logo"></i> LinkedIn</a>
+      <a class="btn btn--ghost" href="https://francois-poidevin.github.io/career/" target="_blank" rel="noopener"><i class="ph-bold ph-globe"></i> Site perso</a>
+      <a class="btn btn--ghost" href="http://www.flickr.com/photos/10698146@N06/" target="_blank" rel="noopener"><i class="ph-bold ph-camera"></i> Portfolio photo</a>
+      <a class="btn btn--ghost" href="https://universe.roboflow.com/imagedetection-nqskd/orthoparkingdetection" target="_blank" rel="noopener"><i class="ph-bold ph-eye"></i> Roboflow IA</a>
     </div>
   </div>
   <footer>
-    <div class="ft-inner">
-      <div class="ft-copy">© 2025 — François POIDEVIN MERDRIGNAC · Ingénieur Cloud &amp; DevOps · Toulouse</div>
-      <div class="ft-soc">
-        <a href="https://fr.linkedin.com/in/poidevinfrancois" target="_blank" class="soc-btn" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-        <a href="https://francois-poidevin.github.io/career/" target="_blank" class="soc-btn" title="Site perso"><i class="fas fa-globe"></i></a>
-        <a href="http://www.flickr.com/photos/10698146@N06/" target="_blank" class="soc-btn" title="Portfolio photo"><i class="fab fa-flickr"></i></a>
-      </div>
+    <div class="wrap">
+      <span>© 2025 François Poidevin Merdrignac · Ingénieur Cloud &amp; DevOps · Toulouse</span>
+      <span class="soc">
+        <a href="https://fr.linkedin.com/in/poidevinfrancois" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="ph-bold ph-linkedin-logo"></i></a>
+        <a href="https://francois-poidevin.github.io/career/" target="_blank" rel="noopener" aria-label="Site perso"><i class="ph-bold ph-globe"></i></a>
+        <a href="http://www.flickr.com/photos/10698146@N06/" target="_blank" rel="noopener" aria-label="Portfolio photo"><i class="ph-bold ph-camera"></i></a>
+      </span>
     </div>
   </footer>
 </section>
+</main>
 
-<a href="#hero" id="back-top" title="Retour en haut"><i class="fas fa-chevron-up"></i></a>
-
-<script>
-window.addEventListener('scroll', () => {
-  const s = window.scrollY, t = document.documentElement.scrollHeight - window.innerHeight;
-  document.getElementById('progress-bar').style.width = (s / t * 100) + '%';
-  document.getElementById('back-top').classList.toggle('show', s > 400);
-  document.querySelectorAll('.nav-links a').forEach(a => {
-    const sec = document.querySelector(a.getAttribute('href'));
-    if (sec) { const r = sec.getBoundingClientRect(); a.classList.toggle('active', r.top <= 80 && r.bottom > 80); }
-  });
-});
-const obs = new IntersectionObserver(e => e.forEach(x => { if (x.isIntersecting) x.target.classList.add('visible'); }), { threshold: 0.1 });
-document.querySelectorAll('.fade-up, .fade-left, .fade-right').forEach(el => obs.observe(el));
-function toggleMenu() { document.getElementById('nav-links').classList.toggle('open'); }
-document.querySelectorAll('.nav-links a').forEach(a => a.addEventListener('click', () => document.getElementById('nav-links').classList.remove('open')));
-</script>
+<script src="main.js"></script>
 </body>
 </html>
