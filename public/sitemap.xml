@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Google Search Console ownership: HTML file upload (googleab3733e823f6cf14.html at site root).
+  Process: https://support.google.com/webmasters/answer/9008080#html_verification&zippy=%2Chtml-file-upload
+  Single-page site: the sections (#about, #experience, ...) are anchors, not separate URLs.
+  Source lives in public/ so Vite copies it unchanged to the site root on build.
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://francois-poidevin.github.io/career/</loc>
+    <lastmod>2026-10-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+</urlset>

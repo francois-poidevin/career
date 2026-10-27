@@ -22,7 +22,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/bold/style.css"/>
-<link rel="stylesheet" href="style.css"/>
+<link rel="stylesheet" href="./style.css"/>
 <script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
@@ -218,19 +218,27 @@
 
 <!-- ========== CONTACT ========== -->
 <section class="sec sec--rise contact" id="contact">
-  <div class="wrap">
-    <h2 class="title reveal">Travaillons ensemble</h2>
-    <p class="lead reveal" style="--i:1">Ouvert aux opportunités dans le cloud natif, le DevOps, la mobilité autonome ou les villes connectées. Toulouse ou remote.</p>
-    <div class="contact__links reveal" style="--i:2">
-      <a class="btn btn--primary" href="https://fr.linkedin.com/in/poidevinfrancois" target="_blank" rel="noopener"><i class="ph-bold ph-linkedin-logo"></i> LinkedIn</a>
-      <a class="btn btn--ghost" href="https://francois-poidevin.github.io/career/" target="_blank" rel="noopener"><i class="ph-bold ph-globe"></i> Site perso</a>
-      <a class="btn btn--ghost" href="http://www.flickr.com/photos/10698146@N06/" target="_blank" rel="noopener"><i class="ph-bold ph-camera"></i> Portfolio photo</a>
-      <a class="btn btn--ghost" href="https://universe.roboflow.com/imagedetection-nqskd/orthoparkingdetection" target="_blank" rel="noopener"><i class="ph-bold ph-eye"></i> Roboflow IA</a>
+  <div class="wrap ticket-wrap">
+    <div class="sr-only">
+      <h2>Travaillons ensemble</h2>
+      <p>Ouvert aux opportunités dans le cloud natif, le DevOps, la mobilité autonome ou les villes connectées. Toulouse ou remote.</p>
+      <a href="mailto:francois.poidevin@yahoo.fr">francois.poidevin@yahoo.fr</a>
+      <a href="https://fr.linkedin.com/in/poidevinfrancois">LinkedIn</a>
+      <a href="https://francois-poidevin.github.io/career/">Site perso</a>
+      <a href="http://www.flickr.com/photos/10698146@N06/">Portfolio photo</a>
+      <a href="https://universe.roboflow.com/imagedetection-nqskd/orthoparkingdetection">Roboflow IA</a>
+    </div>
+    <div class="ticket-stage reveal" id="ticket-stage" aria-hidden="true">
+      <span class="ticket-pill" id="ticket-pill"></span>
+    </div>
+    <div class="ticket-bar">
+      <p class="ticket-hint" id="ticket-hint" aria-live="polite"></p>
+      <button class="btn btn--primary" id="ticket-reset" type="button" hidden><i class="ph-bold ph-ticket"></i> Nouveau billet</button>
     </div>
   </div>
   <footer>
     <div class="wrap">
-      <span>© 2025 François Poidevin Merdrignac · Ingénieur Cloud &amp; DevOps · Toulouse</span>
+      <span>© 2025 François Poidevin Merdrignac · Ingénieur Cloud &amp; DevOps · Toulouse<br/>Billet holographique adapté de <a class="credit" href="https://github.com/Sam1983Aing/ticket-tear" target="_blank" rel="noopener">ticket-tear</a> par Samnang Aing</span>
       <span class="soc">
         <a href="https://fr.linkedin.com/in/poidevinfrancois" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="ph-bold ph-linkedin-logo"></i></a>
         <a href="https://francois-poidevin.github.io/career/" target="_blank" rel="noopener" aria-label="Site perso"><i class="ph-bold ph-globe"></i></a>
@@ -241,6 +249,7 @@
 </section>
 </main>
 
-<script src="main.js"></script>
+<script type="module" src="./main.js"></script>
+<script type="module" src="./src/main.ts"></script>
 </body>
 </html>
