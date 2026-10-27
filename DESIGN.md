@@ -1,7 +1,7 @@
 ---
 version: alpha
 name: Tropical-Jade-Sunrise-career-site
-description: Single-page career site for a Cloud and DevOps engineer. Palette is Figma website colour scheme 35 "Tropical jade sunrise" (teal, aqua, jade, sun yellow, coral on near-white). Sections are cut by slanted edges, two of them play a video background scrubbed by the user's scroll, and the whole page uses one shape system (pills and 20px cards) and one accent (coral) for every primary action.
+description: Single-page career site for a Cloud and DevOps engineer. Palette is Figma website colour scheme 35 "Tropical jade sunrise" (teal, aqua, jade, sun yellow, coral on near-white). Sections are cut by slanted edges, two of them play a video background scrubbed by the user's scroll, the contact section is a 3D holographic paper ticket the visitor tears to send an email, and the whole page uses one shape system (pills and 20px cards) and one accent (coral) for every primary action.
 
 colors:
   teal: "#097c87"
@@ -128,7 +128,7 @@ A one-page career site: hero, about, experience, skills, education, projects, re
 
 Two sections carry a **scroll-scrubbed video background**: the hero (`Keyboard.mp4`) and Experience (`Office.mp4`). The video does not autoplay. The user's scroll position sets `currentTime`, so scrolling forward plays it and scrolling back rewinds it.
 
-Design read: personal portfolio for recruiters and engineering managers, playful-but-credible language, native CSS plus a small amount of vanilla JS. No framework, no build step.
+Design read: personal portfolio for recruiters and engineering managers, playful-but-credible language, native CSS plus a small amount of vanilla JS. No UI framework. A Vite + TypeScript build exists only for the contact ticket (Three.js); everything else is plain HTML, CSS and `main.js`.
 
 Dials: variance 8, motion 6, density 4.
 
@@ -206,7 +206,7 @@ Fonts load from Google Fonts with `display=swap`. Icons are Phosphor (bold weigh
   - Education: 4-step staircase, each card offset lower.
   - Projects: numbered index rows.
   - Recommendations: two offset quote blocks.
-  - Contact: large title, links, decorative sun disc.
+  - Contact: full-width WebGL stage holding one 3D ticket (see Signature Components, item 5).
 
 ### Slanted section edges
 Sections have `margin-top: calc(var(--s) * -1)` so they overlap the previous band, and one of two `clip-path` polygons:
@@ -266,7 +266,7 @@ One rule, no exceptions:
 - **Quote** (Recommendations): sun and teal blocks, second one offset down 4rem. Quote bodies are cut to three lines.
 
 ### Inputs & Forms
-None. Contact is by links only.
+None. Contact is a tearable ticket that opens a `mailto:` (see Signature Components, item 5). The links that used to be buttons are printed on the ticket and mirrored in a visually-hidden `.sr-only` block so they stay real links for assistive tech and crawlers.
 
 ### Navigation
 - Floating pill, 56px high, centred, 0.9rem from the top, translucent dark teal with blur.
@@ -281,6 +281,15 @@ None. Contact is by links only.
 2. **Slanted bands** with alternating `rise` and `fall` clip paths.
 3. **Marquee seam band** in coral, rotated to match the slant.
 4. **Project index rows**: number counter, title, description, pill link. Hover turns the row jade and nudges its padding.
+5. **Holographic tear ticket** (Contact, `src/`). Adapted from `Sam1983Aing/ticket-tear` (Three.js). Check that repo's licence terms before publishing.
+   - **Ticket:** a 25 x 36 Verlet-spring paper mesh (`verletPaperEngine.ts`) with a holographic foil shader (`holographicShader.ts`: thin-film rainbow, Voronoi glitter, emboss, punched perforation) and synthesized rip sounds (`soundEngine.ts`). Textures are drawn on canvas in `ticketTextureGenerator.ts`, so there are no image or audio files.
+   - **Front face:** carries the content of the Contact section (title "Travaillons ensemble", lead paragraph, four links) and, on the tearable stub below the perforation, the label "Détacher pour un email".
+   - **Back face:** blank card stock with the same stub label.
+   - **Event:** when the stub is fully torn, on either face, the page opens `mailto:francois.poidevin@yahoo.fr` (subject "Travaillons ensemble") after 900ms so the stub can fall. "Nouveau billet" (coral primary button) then resets the ticket.
+   - **Input:** drag across the dotted line or pull the stub down to tear, drag the body to bend, double-click to flip. `touch-action: pan-y` keeps vertical swipes scrolling the page.
+   - **Hint line:** one italic 12px mono line, left-aligned, 60 percent white, under the stage. It is the only instruction text.
+   - **Colour:** ticket stock is warm paper with teal-deep ink (`#04343a`). The foil spectrum is the only place outside the palette, and it is shader output, not a UI colour.
+   - **Perf:** the render loop runs only while the stage intersects the viewport.
 
 ### Examples (illustrative)
 ```html
@@ -303,6 +312,7 @@ Motion is limited to what carries meaning.
 | Progress bar | Scales with page scroll | Position feedback |
 | Buttons | Scale 0.97 on press, colour change on hover | Feedback |
 | Marquee | 38s linear loop | Single decorative loop, on the seam only |
+| Ticket | Verlet paper physics, foil shimmer that follows tilt | The Contact call to action: tearing is the click |
 
 Technical rules:
 - Curve `cubic-bezier(0.23, 1, 0.32, 1)` for UI. `ease` for colour. `linear` for the marquee.
@@ -311,7 +321,7 @@ Technical rules:
 - Scrub loop eases toward the scroll target (factor 0.18) and never queues a seek while `video.seeking` is true.
 - Each clip is fetched as a Blob and played from an object URL, so seeking works on servers without HTTP range support. Serve the site over HTTP, not `file://`.
 - Hover effects are gated by `(hover: hover) and (pointer: fine)`.
-- `prefers-reduced-motion`: marquee, reveals and smooth scroll are turned off. The video scrub stays, because the user's own scroll drives it.
+- `prefers-reduced-motion`: marquee, reveals and smooth scroll are turned off. The video scrub stays, because the user's own scroll drives it. The ticket is pointer-driven and only animates in response to the user.
 
 ## Do's and Don'ts
 
@@ -323,6 +333,7 @@ Technical rules:
 - Keep veils over video light enough that the footage reads, and add a text shadow or glass card where text sits on it.
 - Re-encode any new scrubbed video with a short GOP (`-g 1` was used) and no audio.
 - Keep body copy at 65ch or less.
+- Keep the email reachable without the ticket: the `.sr-only` links exist for that.
 
 ### Don't
 - Don't add a second accent colour or a purple gradient.
@@ -331,5 +342,16 @@ Technical rules:
 - Don't use `transition: all`, `ease-in`, or `scale(0)` entrances.
 - Don't use poster images for the scrubbed videos.
 - Don't replace the scroll scrub with autoplay.
+- Don't add a second WebGL scene, and don't run the ticket loop while it is off screen.
+- Don't add image or audio files for the ticket: textures and sounds are generated in code.
 - Don't stack more than two image-and-text splits in a row.
 - Don't use pure black anywhere. Dark text is ink (`#04343a`).
+
+## Build & Deploy
+
+- **Stack:** Vite 6, TypeScript, Three.js 0.170. `index.html` is the Vite entry; it loads `main.js` (scroll scrub, reveal, nav) and `src/main.ts` (ticket) as modules.
+- **Commands:** `npm ci`, `npm run dev`, `npm run build` (type-checks with `tsc`, outputs `dist/`), `npm run preview`.
+- **Static files:** everything in `public/` is copied unchanged to the site root: `googleab3733e823f6cf14.html` (Google Search Console ownership, never delete or rename) and `sitemap.xml`.
+- **Deploy:** `.github/workflows/deploy.yml` builds on every push to `main` and publishes `dist/` with the official Pages actions. Requires Settings, Pages, Source = "GitHub Actions". Vite `base` is `./`, so it works under `/career/`.
+- **Sitemap:** one URL. Sections are anchors, not pages. Update `lastmod` in `public/sitemap.xml` when content changes.
+- **Runtime needs:** HTTPS or localhost (WebGL, blob video loading), network access for Google Fonts and the Phosphor icon CDN.
